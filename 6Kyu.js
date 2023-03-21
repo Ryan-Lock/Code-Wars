@@ -18,3 +18,19 @@ const uniqueInOrder = function(iterable){
       }
     return uniques;
   };
+
+// Stop gninnipS My sdroW!
+//Write a function that takes in a string of one or more words, and returns the //same string, but with all five or more letter words reversed (Just like the //name of this Kata). Strings passed in will consist of only letters and spaces. //Spaces will be included only when more than one word is present.
+//
+//Examples:
+//
+//spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" 
+//spinWords( "This is a test") => returns "This is a test" 
+//spinWords( "This is another test" )=> returns "This is rehtona test"
+
+function spinWords(string){
+  // Split the string into an array so that we can loop through each word
+  string = string.split(' ')
+  // Using map, we check if each word is 5 characters or longer. If it is, we split the word, reverse the letters, then rejoin them, and finally, rejoin and return the array
+  return string.map(word => word.length > 4 ? word.split('').reverse().join('') : word).join(' ');
+}
