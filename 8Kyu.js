@@ -70,3 +70,10 @@ function multiTable(number) {
 function removeExclamationMarks(s) {
   return s.split('').filter(char => char !== '!').join('');
 }
+
+//IS IT A PALINDROME?
+//Write a function that checks if a given string (case insensitive) is a palindrome.
+
+function isPalindrome(x) {
+  return (x.toLowerCase() === x.toLowerCase().split('').reverse().join(''))
+}
