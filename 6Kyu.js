@@ -90,3 +90,49 @@ function comp(array1, array2){
   }
   return (matchScore == array1.length); 
 }
+
+
+// YOUR ORDER PLEASE
+
+//Your task is to sort a given string. Each word in the string will contain a //single number. This number is the position the word should have in the result.
+//
+//Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+//
+//If the input string is empty, return an empty string. The words in the input //String will only contain valid consecutive numbers.
+//
+//Examples
+//"is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+//"4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+//""  -->  ""
+
+
+// This solution avoided regex, as I am not yet familiar with it in any capacity
+function order(words){
+  if (words === ''){
+    return words;
+  }
+  // Need to loop through the words (turn them into an array) so you can loop through their length
+  words = words.split(' ');
+  
+  let wordArr = words.sort((a, b) => {
+    // Using the function getNumFromWord(word), we can sort each word as if it were just a number
+    const wordANum = getNumFromWord(a);
+    const wordBNum = getNumFromWord(b);
+    return wordANum - wordBNum;
+  });
+  return wordArr.join(' ');
+
+  // Function which will use charCodeAt() to check the UTF-16 code unit of each char in the word 
+  function getNumFromWord(word) {
+    // Initialize variable to hold the number when we find it
+    let numString = ''
+    for (let i = 0; i < word.length; i++) {
+      // Check for digits 0-9
+      if (word.charCodeAt(i) >= 48 && word.charCodeAt(i) <= 57) {
+        numString += word[i];
+      }
+    }
+    // return the number as an int
+    return parseInt(numString); 
+  }
+}
