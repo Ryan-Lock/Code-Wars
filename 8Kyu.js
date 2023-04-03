@@ -92,3 +92,11 @@ function isPalindrome(x) {
 //1601 --> 17
 //2000 --> 20
 let century = year => Math.ceil(year/100);
+
+
+//Enumerable Magic #25 - Take the First N Elements
+//Create a function that accepts a list/array and a number n, and returns a list///array of the first n elements from the list/array.
+
+function take(arr, n) {
+  return arr.splice(0, n);
+}
