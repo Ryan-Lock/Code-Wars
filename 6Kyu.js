@@ -228,3 +228,22 @@ function bouncingBall(h,  bounce,  window) {
   // Since it will run one last bounce, but the ball won't be seen. So, we subtract 1, because ball is still seen on the way down once when it is initially dropped
   return bounces*2 - 1;
 }
+
+
+// COUNT CHARACTERS IN YOUR STRING
+//The main idea is to count all the occurring characters in a string. If you have //a string like aba, then the result should be {'a': 2, 'b': 1}.
+//
+//What if the string is empty? Then the result should be empty object literal, {}.
+// NOTE: question does not specify whether capitalized letters should be considered unique. This method of solving would count them in addition to their lowercase counterparts.
+function count(string) {
+  let charCount = {}
+  for (let char of string) {
+    console.log(char);
+    if (charCount[char]){
+      charCount[char] += 1
+    } else {
+      charCount[char] = 1
+    }
+  }
+  return charCount;
+}
