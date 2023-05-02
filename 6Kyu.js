@@ -310,3 +310,33 @@ function findEvenIndex(arr) {
   }
   return matching !== undefined ? matching : -1
 }
+
+
+
+//Given an array of integers, find the one that appears an odd number of times.
+
+//There will always be only one integer that appears an odd number of times.
+//
+//Examples
+//[7] should return 7, because it occurs 1 time (which is odd).
+//[0] should return 0, because it occurs 1 time (which is odd).
+//[1,1,2] should return 2, because it occurs 1 time (which is odd).
+//[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+//[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which //is odd).
+
+function findOdd(A) {
+  let uniques = [] 
+  // Iterate through the iterable and simply push the next unique array item as it comes into the uniques array
+  for (let i = 1; i < A.length; i++){
+    if (!uniques.includes(A[i])){
+      uniques.push(A[i])
+    }
+  }
+  // Using find, "The find() method returns the first element in the provided array that satisfies the provided testing function. 
+  // If no values satisfy the testing function, undefined is returned."
+  // Therefore, for each individual number in the array, return a new array of only those numbers from "A", and its length is how many times that number shows up
+  // If it shows up an odd number of times (i.e. 3 or more times), it evaluates as "true" and that number is returned. If it only shows up once (i.e. a 1-number array),
+  // then it returns undefined, and the "||" operator lets us return that number alone.
+  let odd = uniques.find(num => A.filter(x => x === num).length % 2 === 1) || A[0];
+  return odd;
+}
